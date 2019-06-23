@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Contact Picker</string>
+  <string name="main_contact_number_header">Contact Number</string>
+  <string name="main_pick_contact_button">Pick Contact</string>
+</resources>
