@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
 using FlexiMvvm;
 using FlexiMvvm.Bindings;
@@ -12,7 +11,7 @@ namespace Sample.Droid.Views
     [Activity(Theme = "@style/AppTheme.NoActionBar")]
     public class MainActivity : BindableAppCompatActivity<MainViewModel>
     {
-        private TextView _contactNumberTextView;
+        private TextView _phoneNumberTextView;
         private Button _pickContactButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -22,7 +21,7 @@ namespace Sample.Droid.Views
             SetContentView(Resource.Layout.activity_main);
             SetSupportActionBar(FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar));
 
-            _contactNumberTextView = FindViewById<TextView>(Resource.Id.main_contact_number_header_text);
+            _phoneNumberTextView = FindViewById<TextView>(Resource.Id.main_phone_number_text);
             _pickContactButton = FindViewById<Button>(Resource.Id.main_pick_contact_button);
         }
 
@@ -30,9 +29,9 @@ namespace Sample.Droid.Views
         {
             base.Bind(bindingSet);
 
-            bindingSet.Bind(_contactNumberTextView)
+            bindingSet.Bind(_phoneNumberTextView)
                 .For(v => v.TextBinding())
-                .To(vm => vm.ContactNumber);
+                .To(vm => vm.PhoneNumber);
 
             bindingSet.Bind(_pickContactButton)
                 .For(v => v.ClickBinding())

@@ -1,7 +1,6 @@
 ﻿using Android.Content;
 using FlexiMvvm.Navigation;
 using FlexiMvvm.ViewModels;
-using FlexiMvvm.Views;
 using Sample.Core.Presentation.Navigation;
 using Sample.Core.Presentation.ViewModels;
 using Sample.Droid.Views;

@@ -1,5 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Net;
+using Android.Support.V4.App;
 using FlexiMvvm.Views;
 using Sample.Core.Presentation.ViewModels;
 using static Android.Provider.ContactsContract;
@@ -8,23 +10,28 @@ namespace Sample.Droid.Views.ResultMappers
 {
     public class ContactResultMapper : IResultMapper<ContactResult>
     {
-        public ContactResult Map(Intent data)
+        public ContactResult Map(FragmentActivity activity, Result resultCode, Intent data)
         {
             var result = new ContactResult();
 
-            /*
-            Uri contactUri = data.Data;
-            string[] projection = { CommonDataKinds.Phone.Number };
-            var cursor = ContentResolver.Query(contactUri, projection, null, null, null);
-
-            // If the cursor returned is valid, get the phone number
-            if (cursor != null && cursor.MoveToFirst())
+            if (resultCode == Result.Ok)
             {
-                int numberIndex = cursor.GetColumnIndex(CommonDataKinds.Phone.Number);
-                string number = cursor.GetString(numberIndex);
+                Uri contactUri = data.Data;
 
-                result.ContactNumber = number;
-            }*/
+                var numberColumnKey = CommonDataKinds.Phone.Number;
+
+                string[] projection = { numberColumnKey };
+                var cursor = activity.ContentResolver.Query(contactUri, projection, null, null, null);
+
+                // If the cursor returned is valid, get the phone number
+                if (cursor != null && cursor.MoveToFirst())
+                {
+                    int numberIndex = cursor.GetColumnIndex(numberColumnKey);
+                    string number = cursor.GetString(numberIndex);
+
+                    result.PhoneNumber = number;
+                }
+            }
 
             return result;
         }

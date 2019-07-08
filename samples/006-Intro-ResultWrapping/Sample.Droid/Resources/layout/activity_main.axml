@@ -29,13 +29,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/main_contact_number_header_text"
-            android:text="@string/main_contact_number_header"
+            android:id="@+id/main_phone_number_header_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@string/main_phone_number_header"/>
 
         <TextView
-            android:id="@+id/main_contact_number_text"
+            android:id="@+id/main_phone_number_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

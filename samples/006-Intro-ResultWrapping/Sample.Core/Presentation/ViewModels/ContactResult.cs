@@ -4,7 +4,7 @@ namespace Sample.Core.Presentation.ViewModels
 {
     public class ContactResult : Result
     {
-        public string ContactNumber
+        public string PhoneNumber
         {
             get => Bundle.GetString();
             set => Bundle.SetString(value);
